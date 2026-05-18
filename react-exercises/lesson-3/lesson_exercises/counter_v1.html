@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>counter</title>
+    <link rel="stylesheet" href="counter.css">
+  </head>
+  <body>
+    <div class="app"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <!-- <script src="https://unpkg.com/supersimpledev/chatbot.js"></script> -->
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+      function CounterButtonSwitch() {
+        const [count, setCount] = React.useState(0);
+        let newCount = count;
+        const times = ["time", "times"];
+        
+        function counterButtonSwitch() {
+          newCount = count + 1;
+          setCount(newCount);
+        }
+
+        return (
+          <div className="counter-box">
+            <button onClick={counterButtonSwitch}>
+              {
+                newCount > 0
+                  ? `Clicked ${newCount} ${
+                      newCount === 1 ? "time" : "times"
+                    }`
+                  : "Clicked 0 times"
+              }
+            </button>
+          </div>
+        )
+      }
+      
+      function App() {
+        return (
+          <>
+            <CounterButtonSwitch />
+            <CounterButtonSwitch />
+          </>
+        )
+      }
+
+      const appContainer = document.querySelector('.app');
+      ReactDOM.createRoot(appContainer).render(<App />);
+    </script>
+  </body>
+</html>

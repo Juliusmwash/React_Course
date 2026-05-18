@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Button Switch</title>
+    <link rel="stylesheet" href="button-switch.css">
+  </head>
+  <body>
+    <div class="app"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <!-- <script src="https://unpkg.com/supersimpledev/chatbot.js"></script> -->
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+
+      function SwitchBetween(){
+        const [isButtonOn, setIsButtonOn] = React.useState(true);
+
+        function switchTheButton(){
+          setIsButtonOn(!isButtonOn)
+        }
+        
+        return (
+          <>
+            <button
+              className={isButtonOn ? "switch-button-on" : "switch-button-off"}
+              onClick={switchTheButton}
+              >{isButtonOn ? "ON" : "OFF"}
+            </button>
+          </>
+        );
+      }
+      
+      function App() {
+        const [count, setCount] = React.useState(0); // lifted the state up to share it between the counters
+
+        return (
+          <>
+            <SwitchBetween />
+          </>
+        )
+      }
+
+      const appContainer = document.querySelector('.app');
+      ReactDOM.createRoot(appContainer).render(<App />);
+    </script>
+  </body>
+</html>

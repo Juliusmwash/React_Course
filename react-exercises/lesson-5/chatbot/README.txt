@@ -1,0 +1,1 @@
+The exercises were completed directly within the Lesson 5 project rather than split across multiple projects.

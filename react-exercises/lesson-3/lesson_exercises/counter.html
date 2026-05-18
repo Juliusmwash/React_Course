@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>counter</title>
+    <link rel="stylesheet" href="counter.css">
+  </head>
+  <body>
+    <div class="app"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <!-- <script src="https://unpkg.com/supersimpledev/chatbot.js"></script> -->
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+
+      function ResetCounterSwitch({count, setCount}){
+        
+        function resetCounterSwitch(){
+          setCount(0);
+        }
+        
+        return(
+          <button onClick={resetCounterSwitch}>Reset</button>
+        );
+      }
+
+      function CounterButtonSwitch({count, setCount}) {
+        // const [count, setCount] = React.useState(0);
+
+        function counterButtonSwitch() {
+          setCount(count + 1);
+        }
+
+        return (
+          <>
+            <button onClick={counterButtonSwitch}>
+              {
+                count > 0
+                ? `Clicked ${count} ${count === 1
+                ? "time" : "times"}`
+                : "Clicked 0 times"
+              }
+            </button>
+          </>
+        );
+      }
+      
+      function App() {
+        const [count, setCount] = React.useState(0); // lifted the state up to share it between the counters
+
+        return (
+          <>
+            <CounterButtonSwitch count={count} setCount={setCount}/>
+            <CounterButtonSwitch count={count} setCount={setCount}/>
+            <ResetCounterSwitch count={count} setCount={setCount}/>
+          </>
+        )
+      }
+
+      const appContainer = document.querySelector('.app');
+      ReactDOM.createRoot(appContainer).render(<App />);
+    </script>
+  </body>
+</html>

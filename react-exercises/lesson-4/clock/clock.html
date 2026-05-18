@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clock</title>
+    <link rel="stylesheet" href="clock.css">
+  </head>
+
+  <body>
+    <div class="app"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+
+      function Clock() {
+
+        const [currentTime, setCurrentTime] = React.useState(dayjs());
+
+        React.useEffect(() => {
+
+          const intervalId = setInterval(() => {
+            // console.log("run code");
+
+            setCurrentTime(dayjs());
+
+          }, 1000);
+
+          return () => {
+            clearInterval(intervalId);
+          };
+
+        }, []);
+
+        return (
+          <>
+            <h1 className="current-time-label">
+              Current Time
+            </h1>
+
+            <div className="clock-container">
+
+              <p className="hour">
+                {currentTime.format('HH')}
+              </p>
+
+              <p className="semicolon">
+                :
+              </p>
+
+              <p className="minutes">
+                {currentTime.format('mm')}
+              </p>
+
+              <p className="semicolon">
+                :
+              </p>
+
+              <p className="seconds">
+                {currentTime.format('ss')}
+              </p>
+
+            </div>
+          </>
+        );
+      }
+
+      function App() {
+
+        return (
+          <>
+            <Clock />
+          </>
+        );
+      }
+
+      const appContainer = document.querySelector('.app');
+
+      ReactDOM
+        .createRoot(appContainer)
+        .render(<App />);
+
+    </script>
+  </body>
+</html>

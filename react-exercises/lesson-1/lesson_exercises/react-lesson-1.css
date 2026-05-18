@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* horizontal center */
+    align-items: center;     /* vertical center */
+}
+
+.button-name-div,
+.design,
+.cost-div,
+.crt-time-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    gap: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    background-color: rgb(226, 207, 226);
+}
+
+.button-name-div {
+    margin-bottom: 5px;
+}
+
+.button-name-div p,
+.design p,
+.cost-div p,
+.crt-time-div p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: white;
+    color: rgb(175, 84, 189);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.button-name-div button,
+.design button,
+.cost-div button {
+    background-color: rgb(92, 109, 186);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: larger;
+    color: white;
+    border: 0px solid rgb(99, 94, 163);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.cost-div {
+    color: white;
+    margin-top: 5px;
+}
+
+.crt-time-div {
+    position: relative;
+    height: 100px;
+    margin-top: 5px;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+#crt-time-name {
+    position: absolute;
+    top: 10px;
+
+    width: 250px;
+    margin: 0;
+    background: rgb(110, 105, 105);
+    color: white;
+    font-size: 30px;
+}
+
+.crt-time-div p {
+    width: 100px;
+    font-size: 30px;
+}
+
+p.crt-time-hour {
+    color:rgb(26, 64, 235);
+}
+
+p.crt-time-minutes {
+    color:rgb(38, 152, 25);
+}
+
+p.crt-time-seconds {
+    color:rgb(227, 56, 233);
+}

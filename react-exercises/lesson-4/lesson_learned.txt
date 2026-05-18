@@ -1,0 +1,8 @@
+Css with React
+Styled the Chatbot Project
+Flexbox = create a flexible layout
+Ternary Operator (?:) = if-else statement directly in the JSX
+hooks = insert React features into a component
+useEffect = run code after component is created or updated
+useRef = save an HTML element from the component
+Created the auto scroll feature

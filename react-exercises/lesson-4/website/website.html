@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Website</title>
+    <link rel="stylesheet" href="website.css">
+  </head>
+  <body>
+    <div class="app"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <!-- <script src="https://unpkg.com/supersimpledev/chatbot.js"></script> -->
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+
+      // function SwitchBetween(){
+      //   const [isButtonOn, setIsButtonOn] = React.useState(true);
+
+      //   function switchTheButton(){
+      //     setIsButtonOn(!isButtonOn)
+      //   }
+        
+      //   return (
+      //     <>
+      //       <button
+      //         className={isButtonOn ? "switch-button-on" : "switch-button-off"}
+      //         onClick={switchTheButton}
+      //         >{isButtonOn ? "ON" : "OFF"}
+      //       </button>
+      //     </>
+      //   );
+      // }
+
+      function Website() {
+        const [showPassword, setShowPassword] = React.useState(false);
+
+        function showPasswordFunc() {
+          setShowPassword(!showPassword);
+        }
+
+        return(
+          <>
+            <h1 className="website-welcome">Hello, welcome to my website</h1>
+            <div className="email-password-container">
+              <input
+                className="email-input"
+                type="text"
+                placeholder="Email"
+                >
+              </input>
+              <div className="password-show-box">
+                <input
+                  className="password-input"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  >
+                </input>
+                <button
+                  onClick={showPasswordFunc}
+                  className="show-password-button"
+                  >{showPassword ? "Hide" : "Show"}
+                </button>
+              </div>
+              <div className="login-signup-container">
+                <button className="login-button">Login</button>
+                <button className="signup-button">Sign up</button>
+              </div>
+            </div>
+          </>
+        );
+      }
+      
+      function App() {
+
+        return (
+          <>
+            <Website />
+          </>
+        )
+      }
+
+      const appContainer = document.querySelector('.app');
+      ReactDOM.createRoot(appContainer).render(<App />);
+    </script>
+  </body>
+</html>

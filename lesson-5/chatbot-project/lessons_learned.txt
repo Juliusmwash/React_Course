@@ -1,0 +1,8 @@
+Proper React Setup (using command line, npm and vite)
+Command Line = give commands to our computer
+NPM = download and use external libraries (or packages)
+create-vite Package = helps us create a Proper React Setup
+Moved our Chatbot Project into the new React Setup
+ESLint - highlights problems in our JavaScript code
+JavaScript Modules = separate our code into different files
+Separated each component into its own .jsx and .css files

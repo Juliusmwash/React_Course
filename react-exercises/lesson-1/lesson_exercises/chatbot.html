@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+    <link rel="stylesheet" href="react-lesson-1.css">
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <div class="design-container"></div>
+    <div class="product-cost"></div>
+    <div class="current-time"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+      console.log(`${dayjs().format('MMMM D')}`);
+
+      const button = <button>Good Job</button>;
+      const paragraph = <p>paragraph of text</p>;
+
+      const div = (
+        <div className="button-name-div">
+          <button>button</button>
+          <p>My name is Julius Mwangi </p>
+        </div>
+        );
+
+      const designDiv = (
+        <div className="design">
+          <p className="design-paragraph">Cotton Socks</p>
+          <p>Price: $10</p>
+          <button>Add to Cart</button>
+        </div>
+      );
+
+      const productCost = 10 * 1 + 2 * 8;
+      console.log(`product cost = ${productCost}`);
+      const shippingCost = 5;
+
+
+
+      const costDiv = (
+        <div className="cost-div">
+          <p>product cost: {productCost}</p>
+          <p>Shipping Cost: {shippingCost}</p>
+          <p>Total Cost: {productCost + shippingCost}</p>
+          <button>Place your order</button>
+        </div>
+      );
+
+      const { useState, useEffect } = React;
+
+      function Clock() {
+        const [time, setTime] = useState(dayjs());
+
+        useEffect(() => {
+          const interval = setInterval(() => {
+            setTime(dayjs());
+          }, 1000);
+
+          return () => clearInterval(interval);
+        }, []);
+
+        return (
+          <div className="crt-time-div">
+            <p id="crt-time-name">Current Time</p>
+            <p className="crt-time-hour">{time.format('HH')}</p>
+            <p className="crt-time-minutes">{time.format('mm')}</p>
+            <p className="crt-time-seconds">{time.format('ss')}</p>
+          </div>
+        );
+      }
+
+      const productCst = document.querySelector('.product-cost');
+      const container = document.querySelector('.js-container');
+      const designContainer = document.querySelector('.design-container');
+      const currentTime = document.querySelector('.current-time');
+
+      ReactDOM.createRoot(container).render(div);
+      ReactDOM.createRoot(designContainer).render(designDiv);
+      ReactDOM.createRoot(productCst).render(costDiv);
+      ReactDOM.createRoot(currentTime).render(<Clock />);
+
+    </script>
+  </body>
+</html>

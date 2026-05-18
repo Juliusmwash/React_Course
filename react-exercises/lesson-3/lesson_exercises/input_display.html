@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Input Display</title>
+    <link rel="stylesheet" href="counter.css">
+  </head>
+  <body>
+    <div class="app"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <!-- <script src="https://unpkg.com/supersimpledev/chatbot.js"></script> -->
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      
+      function InputDisplay(){
+        const [textInput, setInputText] = React.useState("");
+
+        function inputDisplayTracker(event) {
+          // console.log(event.target.value);
+          setInputText(event.target.value);
+          // console.log(`update function called: ${textInput}`);  // debugging to proof that state updates after an event exits
+        }
+        // console.log(textInput); // debugging to proof that state updates after an event exits
+
+        function resetEverything() {
+          setInputText("");
+        }
+
+        function showExample() {
+          setInputText("Julius");
+        }
+
+        return (
+          <>
+            <input onChange={inputDisplayTracker} placeholder="Type a text here" value={textInput}/>
+            <button onClick={resetEverything}>Reset</button>
+            <button onClick={showExample}>Example</button>
+            <div>Hello {textInput}</div>
+          </>
+        );
+      }
+
+      function App(){
+        return (
+          <InputDisplay />
+        )
+      }
+
+      const appContainer = document.querySelector('.app');
+      ReactDOM.createRoot(appContainer).render(<App />);
+    </script>
+  </body>
+</html>
