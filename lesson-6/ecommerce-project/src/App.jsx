@@ -2,6 +2,7 @@ import { Route, Routes, } from 'react-router'
 import { HomePage } from './assets/pages/HomePage'
 import { Header } from './assets/pages/Header'
 import { CheckoutPage } from './assets/pages/CheckoutPage'
+import { OrdersPage } from './assets/pages/OrdersPage'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -23,8 +24,8 @@ function App() {
         element={<CheckoutPage />}
       />
        <Route
-        path="/contact"
-        element={<h1>Contact Page</h1>}
+        path="/orders"
+        element={<OrdersPage />}
       />
     </Routes>
   )
