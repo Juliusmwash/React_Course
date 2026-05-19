@@ -1,9 +1,17 @@
 import './TrackingPage.css';
+import { Helmet } from "react-helmet";
 
 export function TrackingPage() {
   return (
     <>
-      <title>Tracking</title>
+      <Helmet>
+        <title>Tracking</title>
+        <link
+          rel="icon"
+          type="image/png"
+          href="images/favicon/tracking-favicon.png"
+        />
+      </Helmet>
 
       <div class="tracking-page">
         <div class="order-tracking">

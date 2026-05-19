@@ -1,9 +1,17 @@
 import './OrdersPage.css';
+import { Helmet } from "react-helmet";
 
 export function OrdersPage() {
   return (
     <>
-      <title>Orders</title>
+      <Helmet>
+        <title>Orders</title>
+        <link
+          rel="icon"
+          type="image/png"
+          href="images/favicon/orders-favicon.png"
+        />
+      </Helmet>
 
       <div className="orders-page">
         <div className="page-title">Your Orders</div>

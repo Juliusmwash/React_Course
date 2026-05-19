@@ -1,10 +1,18 @@
+import { Helmet } from "react-helmet-async";
 import './HomePage.css';
 
 export function HomePage() {
   return (
     <>
-    <title>Ecommerce</title>
-
+      <Helmet>
+        <title>Ecommerce</title>
+        <link
+          rel="icon"
+          type="image/png"
+          href="images/favicon/home-favicon.png"
+       />
+      </Helmet>
+    
       <div className="home-page">
         <div className="products-grid">
           <div className="product-container">

@@ -1,11 +1,20 @@
 import './CheckoutPage.css'
 import { CheckoutHeader } from './CheckoutHeader'
+import { Helmet } from "react-helmet";
 
 export function CheckoutPage() {
   return (
     <>
+      <Helmet>
+        <title>Checkout</title>
+        <link
+          rel="icon"
+          type="image/png"
+          href="images/favicon/cart-favicon.png"
+        />
+      </Helmet>
+
       <CheckoutHeader />
-      <title>Checkout</title>
 
       <div className="checkout-page">
         <div className="page-title">Review your order</div>
