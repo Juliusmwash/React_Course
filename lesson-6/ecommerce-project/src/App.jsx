@@ -1,6 +1,7 @@
 import { Route, Routes, } from 'react-router'
 import { HomePage } from './assets/pages/HomePage'
 import { Header } from './assets/pages/Header'
+import { CheckoutPage } from './assets/pages/CheckoutPage'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -18,8 +19,8 @@ function App() {
         }
       />
       <Route
-        path="/products"
-        element={<h1>Products Page</h1>}
+        path="checkout"
+        element={<CheckoutPage />}
       />
        <Route
         path="/contact"
