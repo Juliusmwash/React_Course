@@ -1,8 +1,9 @@
 import { Route, Routes, } from 'react-router'
-import { HomePage } from './assets/pages/HomePage'
-import { Header } from './assets/pages/Header'
-import { CheckoutPage } from './assets/pages/CheckoutPage'
-import { OrdersPage } from './assets/pages/OrdersPage'
+import { HomePage } from './pages/HomePage'
+import { Header } from './components/Header'
+import { CheckoutPage } from './pages/CheckoutPage'
+import { OrdersPage } from './pages/OrdersPage'
+import { TrackingPage } from './pages/TrackingPage'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -25,7 +26,21 @@ function App() {
       />
        <Route
         path="/orders"
-        element={<OrdersPage />}
+        element={
+          <>
+            <Header />
+            <OrdersPage />
+          </>
+        }
+      />
+      <Route
+        path="/tracking"
+        element={
+          <>
+            <Header />
+            <TrackingPage />
+          </>
+        }
       />
     </Routes>
   )
