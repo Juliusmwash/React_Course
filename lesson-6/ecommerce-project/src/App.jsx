@@ -1,7 +1,7 @@
 import { Route, Routes, } from 'react-router'
 import { HomePage } from './pages/HomePage'
 import { Header } from './components/Header'
-import { CheckoutPage } from './pages/CheckoutPage'
+import { CheckoutPage } from './pages/checkout/CheckoutPage'
 import { OrdersPage } from './pages/OrdersPage'
 import { TrackingPage } from './pages/TrackingPage'
 
