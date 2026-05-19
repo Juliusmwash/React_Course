@@ -1,5 +1,6 @@
 import './TrackingPage.css';
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+import { Link } from 'react-router';
 
 export function TrackingPage() {
   return (
@@ -15,9 +16,9 @@ export function TrackingPage() {
 
       <div class="tracking-page">
         <div class="order-tracking">
-          <a class="back-to-orders-link link-primary" href="/orders">
+          <Link class="back-to-orders-link link-primary" href="/orders">
             View all orders
-          </a>
+          </Link>
 
           <div class="delivery-date">
             Arriving on Monday, June 13

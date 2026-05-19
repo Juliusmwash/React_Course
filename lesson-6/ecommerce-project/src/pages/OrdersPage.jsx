@@ -1,5 +1,5 @@
 import './OrdersPage.css';
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 export function OrdersPage() {
   return (
