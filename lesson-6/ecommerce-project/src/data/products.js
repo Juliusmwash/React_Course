@@ -68,7 +68,7 @@ export const products = [
   {
     id: "dd82ca78-a18b-4e2a-9250-31e67412f98d",
     image: "images/products/women-plain-cotton-oversized-sweater-gray.jpg",
-    name: "Cotton Oversized Sweater - Gray",
+    name: "Cotton Oversized Sweatlesson-6/ecommerce-project/src/data/products.jser - Gray",
     rating: {
       stars: 4.5,
       count: 317
