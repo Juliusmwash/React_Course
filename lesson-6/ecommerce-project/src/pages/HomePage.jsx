@@ -1,26 +1,21 @@
+import { useState, useEffect } from 'react';
 import { Helmet } from "react-helmet-async";
-import { products } from '../data/products.js';
 import axios from 'axios';
 
 import './HomePage.css';
 
 export function HomePage() {
-  axios.get('http://localhost:3000/api/products')
-    .then((response) => {
-      console.log(response.data);
-    })
-    .catch((error) => {
-      console.error('Error fetching products:', error);
-    });
-  
-  // fetch('http://localhost:3000/api/products')
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     console.log(data);
-  //   })
-  //   .catch((error) => {
-  //     console.error('Error fetching products:', error);
-  //   });
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/api/products')
+      .then((response) => {
+        setProducts(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching products:', error);
+      });
+  }, []);
 
   return (
     <>
