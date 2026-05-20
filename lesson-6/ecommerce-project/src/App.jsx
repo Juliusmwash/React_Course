@@ -15,7 +15,6 @@ function App() {
         index // path="/" is the same as index
         element={
           <>
-            <Header />
             <HomePage />
           </>
         }
