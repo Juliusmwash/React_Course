@@ -1,11 +1,13 @@
-import './Header.css'
+import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router';
+import './Header.css'
 
 export function Header({ cart }) {
-  let totalQuantity = 0;
-  cart.forEach((item) => {
-    totalQuantity += item.quantity;
-  });
+  const [totalQuantity, setTotalQuantity] = useState(0);
+
+  useEffect(() => {
+   setTotalQuantity(cart.length);
+  }, [cart]);
 
   return (
     <>

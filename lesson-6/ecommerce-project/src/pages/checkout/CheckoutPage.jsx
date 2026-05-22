@@ -2,7 +2,7 @@ import './CheckoutPage.css'
 import { CheckoutHeader } from './CheckoutHeader'
 import { Helmet } from "react-helmet-async";
 
-export function CheckoutPage() {
+export function CheckoutPage({cart}) {
   return (
     <>
       <Helmet>
@@ -14,7 +14,7 @@ export function CheckoutPage() {
         />
       </Helmet>
 
-      <CheckoutHeader />
+      <CheckoutHeader cart={cart}/>
 
       <div className="checkout-page">
         <div className="page-title">Review your order</div>
