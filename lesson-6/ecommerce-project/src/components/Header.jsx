@@ -6,7 +6,9 @@ export function Header({ cart }) {
   const [totalQuantity, setTotalQuantity] = useState(0);
 
   useEffect(() => {
-   setTotalQuantity(cart.length);
+   setTotalQuantity((() => {
+      return cart.reduce((total, item) => total + item.quantity, 0);
+    })());
   }, [cart]);
 
   return (

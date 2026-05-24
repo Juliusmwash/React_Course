@@ -14,9 +14,19 @@ export function CheckoutHeader({ cart }) {
             </Link>
           </div>
 
-          <div className="checkout-header-middle-section">
+          {/* <div className="checkout-header-middle-section">
             Checkout (<Link className="return-to-home-link"
               to="/"> {cart.length} items </Link>)
+          </div> */}
+          <div className="checkout-header-middle-section">
+            Checkout (
+            <Link
+              className="return-to-home-link"
+              to="/"
+            >
+              {cart.reduce((total, item) => total + item.quantity, 0)} items
+            </Link>
+            )
           </div>
 
           <div className="checkout-header-right-section">
