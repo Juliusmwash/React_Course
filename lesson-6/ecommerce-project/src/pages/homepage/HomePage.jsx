@@ -9,15 +9,28 @@ import './HomePage.css';
 export function HomePage() {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    axios.get('/api/products')
-      .then((response) => {
+  // useEffect(() => {
+  //   axios.get('/api/products')
+  //     .then((response) => {
+  //       setProducts(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error fetching products:', error);
+  //     });
+  // }, []);
+
+  useEffect(() => { 
+    const getProducts = async () => {
+      try {
+        const response = await axios.get('/api/products');
         setProducts(response.data);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Error fetching products:', error);
-      });
-  }, []);
+      }
+    };
+    
+    getProducts();
+  },[]);
 
   return (
     <>

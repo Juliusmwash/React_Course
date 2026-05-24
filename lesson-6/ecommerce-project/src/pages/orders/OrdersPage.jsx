@@ -8,13 +8,24 @@ export function OrdersPage() {
   const [orders, setOrders] = useState(null);
 
   useEffect(() => {
-    axios.get('/api/orders?expand=products')
-      .then((response) => {
+    // axios.get('/api/orders?expand=products')
+    //   .then((response) => {
+    //     setOrders(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error fetching orders:', error);
+    //   });
+
+    const getOrders = async () => {
+      try {
+        const response = await axios.get('/api/orders?expand=products');
         setOrders(response.data);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Error fetching orders:', error);
-      });
+      }
+    };
+
+    getOrders();
   }, []);
 
   return (

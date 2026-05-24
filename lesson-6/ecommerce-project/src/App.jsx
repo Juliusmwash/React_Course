@@ -10,16 +10,29 @@ import { TrackingPage } from './pages/tracking/TrackingPage'
 function App() {
   const [cart, setCart] = useState([]);
 
+  // useEffect(() => {
+  //     axios.get('/api/cart-items?expand=product')
+  //       .then((response) => {
+  //         console.log('Cart items fetched successfully:');
+  //         console.log(response.data);
+  //         setCart(response.data);
+  //       })
+  //       .catch((error) => {
+  //         console.error('Error fetching cart items:', error);
+  //       });
+  // }, []);
+
   useEffect(() => {
-      axios.get('/api/cart-items?expand=product')
-        .then((response) => {
-          console.log('Cart items fetched successfully:');
-          console.log(response.data);
-          setCart(response.data);
-        })
-        .catch((error) => {
-          console.error('Error fetching cart items:', error);
-        });
+    const getCartItems = async () => {
+      try {
+        const response = await axios.get('/api/cart-items?expand=product');
+        setCart(response.data);
+      } catch (error) {
+        console.error('Error fetching cart items:', error);
+      }
+    };
+    
+    getCartItems();
   }, []);
 
   return (
