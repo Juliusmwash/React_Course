@@ -6,8 +6,7 @@ import {formatMoney} from '../utils/money';
 
 import './HomePage.css';
 
-export function HomePage({ cart }) {
-  console.log(`Cart:\n${JSON.stringify(cart, null, 2)}`);
+export function HomePage() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -30,8 +29,6 @@ export function HomePage({ cart }) {
           href="images/favicon/home-favicon.png"
         />
       </Helmet>
-      <Header cart={cart} />
-
       <div className="home-page">
         <div className="products-grid">
           {products.map((product) => (

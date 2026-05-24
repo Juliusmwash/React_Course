@@ -29,7 +29,8 @@ function App() {
         index // path="/" is the same as index
         element={
           <>
-            <HomePage cart={cart} />
+            <Header cart={cart} />
+            <HomePage />
           </>
         }
       />
@@ -41,7 +42,7 @@ function App() {
         path="/orders"
         element={
           <>
-            <Header />
+            <Header cart={cart} />
             <OrdersPage />
           </>
         }
@@ -50,7 +51,7 @@ function App() {
         path="/tracking"
         element={
           <>
-            <Header />
+            <Header cart={cart} />
             <TrackingPage />
           </>
         }
