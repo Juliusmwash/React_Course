@@ -6,9 +6,8 @@ import { HomePageTemplate } from './HomePageTemplate';
 
 import './HomePage.css';
 
-export function HomePage() {
+export function HomePage({ loadCart }) {
   const [products, setProducts] = useState([]);
-
   // useEffect(() => {
   //   axios.get('/api/products')
   //     .then((response) => {
@@ -43,7 +42,10 @@ export function HomePage() {
         />
       </Helmet>
       <div className="home-page">
-        <HomePageTemplate products={products} />
+        <HomePageTemplate
+          products={products}
+          loadCart={loadCart}
+        />
       </div>
     </>
   );

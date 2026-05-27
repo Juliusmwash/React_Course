@@ -10,6 +10,15 @@ import { TrackingPage } from './pages/tracking/TrackingPage'
 function App() {
   const [cart, setCart] = useState([]);
 
+  const loadCart = async () => {
+    try {
+      const response = await axios.get('/api/cart-items?expand=product');
+      setCart(response.data);
+    } catch (error) {
+      console.error('Error fetching cart items:', error);
+    }
+  };
+
   // useEffect(() => {
   //     axios.get('/api/cart-items?expand=product')
   //       .then((response) => {
@@ -23,16 +32,7 @@ function App() {
   // }, []);
 
   useEffect(() => {
-    const getCartItems = async () => {
-      try {
-        const response = await axios.get('/api/cart-items?expand=product');
-        setCart(response.data);
-      } catch (error) {
-        console.error('Error fetching cart items:', error);
-      }
-    };
-    
-    getCartItems();
+    loadCart();
   }, []);
 
   return (
@@ -43,15 +43,15 @@ function App() {
         element={
           <>
             <Header cart={cart} />
-            <HomePage />
+            <HomePage loadCart={loadCart} />
           </>
         }
       />
       <Route
-        path="checkout"
-        element={<CheckoutPage cart={cart}/>}
+        path="/checkout"
+        element={<CheckoutPage cart={cart} />}
       />
-       <Route
+      <Route
         path="/orders"
         element={
           <>

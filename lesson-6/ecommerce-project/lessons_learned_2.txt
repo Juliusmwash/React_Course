@@ -1,0 +1,7 @@
+Backend = manages the data
+Set up a backend for our project
+Data fetching
+axios = easier way to make requests to the backend
+Generate the HTML using data from the backend
+Separated into smaller components
+Async Await = write asynchronous code like normal code
