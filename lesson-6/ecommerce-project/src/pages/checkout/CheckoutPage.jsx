@@ -1,41 +1,30 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Helmet } from "react-helmet-async";
-import { CheckoutTemplate } from './CheckoutTemplate'
 import { CheckoutHeader } from './CheckoutHeader'
+import { OrderSummary } from './OrderSummary'
+import { PaymentSummary } from './PaymentSummary'
 import './CheckoutPage.css'
 
-export function CheckoutPage({ cart }) {
+export function CheckoutPage({ cart, loadCart }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState(null);
 
   useEffect(() => {
-    // axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
-    //   .then((response) => {
-    //     setDeliveryOptions(response.data);
-    //     // console.log('Delivery options:');
-    //     // console.log(response.data);
-    //   });
-
     const deliveryOptionsResponse = async () => {
       const response = await axios.get('/api/delivery-options?expand=estimatedDeliveryTime');
       setDeliveryOptions(response.data);
     }
     deliveryOptionsResponse();
+  }, []);
 
-    // axios.get('/api/payment-summary')
-    //   .then((response) => {
-    //     setPaymentSummary(response.data);
-    //     // console.log('Payment summary:');
-    //     // console.log(response.data);
-    //   });
-
+  useEffect(() => {
     const paymentSummaryResponse = async () => {
       const response = await axios.get('/api/payment-summary');
       setPaymentSummary(response.data);
     }
     paymentSummaryResponse();
-  }, []);
+  }, [cart]);
 
   return (
     <>
@@ -54,11 +43,11 @@ export function CheckoutPage({ cart }) {
         <div className="page-title">Review your order</div>
 
         <div className="checkout-grid">
-          <CheckoutTemplate
+          <OrderSummary
             cart={cart}
             deliveryOptions={deliveryOptions}
-            paymentSummary={paymentSummary}
-          />
+            loadCart={loadCart} />
+          <PaymentSummary paymentSummary={paymentSummary} />
         </div>
       </div>
     </>

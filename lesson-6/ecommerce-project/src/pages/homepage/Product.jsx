@@ -1,17 +1,23 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import axios from 'axios';
 import { formatMoney } from '../../utils/money';
 
 export function Product({ product, loadCart }) {
 	const [quantity, setQuantity] = useState(1);
+	const addedToCartRef = useRef();
 
 	const addToCart = async () => {
 		await axios.post('/api/cart-items', {
 			productId: product.id,
-			quantity: quantity,
+			quantity
 		});
 		// console.log('Added to cart:', response.data);
 		await loadCart();
+
+		addedToCartRef.current.style.opacity = 1;
+		setTimeout(() => {
+			addedToCartRef.current.style.opacity = 0;
+		}, 3000);
 	};
 
 	const selectQuantity = async (e) => {
@@ -58,7 +64,7 @@ export function Product({ product, loadCart }) {
 
 			<div className="product-spacer"></div>
 
-			<div className="added-to-cart">
+			<div className="added-to-cart" ref={addedToCartRef}>
 				<img src="images/icons/checkmark.png" />
 				Added
 			</div>

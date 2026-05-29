@@ -19,18 +19,6 @@ function App() {
     }
   };
 
-  // useEffect(() => {
-  //     axios.get('/api/cart-items?expand=product')
-  //       .then((response) => {
-  //         console.log('Cart items fetched successfully:');
-  //         console.log(response.data);
-  //         setCart(response.data);
-  //       })
-  //       .catch((error) => {
-  //         console.error('Error fetching cart items:', error);
-  //       });
-  // }, []);
-
   useEffect(() => {
     loadCart();
   }, []);
@@ -49,7 +37,7 @@ function App() {
       />
       <Route
         path="/checkout"
-        element={<CheckoutPage cart={cart} />}
+        element={<CheckoutPage cart={cart} loadCart={loadCart} />}
       />
       <Route
         path="/orders"
